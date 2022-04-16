@@ -1,6 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStylesDefault = createGlobalStyle`
+interface Props {
+  theme: {
+    color: string;
+  };
+}
+
+export const GlobalStylesDefault = createGlobalStyle<Props>`
 
     *{
         padding: 0;
@@ -15,9 +21,10 @@ export const GlobalStylesDefault = createGlobalStyle`
         font-family: 'Roboto', sans-serif;
     }
     
-    body,html{
+    body{
         width: 100vw;
         height: 100vh;
+        background-color: ${(props) => props.theme.color}
     }
     
     :root{
